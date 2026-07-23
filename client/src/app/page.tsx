@@ -8,7 +8,7 @@ export default function Home() {
   const [isDownloading, setIsDownloading] = useState(false);
   const [error, setError] = useState('');
 
-  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://localhost:5173';
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -68,7 +68,7 @@ return (
               <input
                 type="url"
                 value={url}
-                onChange={(e) => setUrl(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setUrl(e.target.value)}
                 placeholder="https://youtube.com/watch?v=..."
                 className="w-full px-4 py-3 border border-zinc-300 dark:border-zinc-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-zinc-700 dark:text-zinc-100 outline-none transition-colors"
                 required
@@ -81,7 +81,7 @@ return (
               </label>
               <select
                 value={format}
-                onChange={(e) => setFormat(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setFormat(e.target.value)}
                 className="w-full px-4 py-3 border border-zinc-300 dark:border-zinc-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-zinc-700 dark:text-zinc-100 outline-none transition-colors"
               >
                 <option value="mp3">MP3 (Audio only)</option>
